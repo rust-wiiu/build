@@ -1,6 +1,8 @@
 FROM rust:1.86
 LABEL authors="29th-Day"
 
+ARG RUSTC_VERSION="nightly-2025-02-06"
+
 WORKDIR /usr/local/download
 
 RUN apt-get update && \
@@ -13,8 +15,7 @@ RUN apt-get update && \
     && \
     rm -rf /var/lib/apt/lists/*
 
-RUN rustup toolchain install nightly-x86_64-unknown-linux-gnu && \
-    rustup component add rust-src --toolchain nightly-x86_64-unknown-linux-gnu
+RUN rustup toolchain install ${RUSTC_VERSION} -c rust-src
 
 RUN cargo install --force \
     cargo-make \
@@ -33,6 +34,6 @@ ENV DEVKITPRO=/opt/devkitpro
 ENV DEVKITPPC=${DEVKITPRO}/devkitPPC
 ENV GH=https://github.com/rust-wiiu
 
-WORKDIR /usr/local/rust-wiiu
+WORKDIR /home/rust-wiiu
 
 CMD ["sleep", "infinity"]
