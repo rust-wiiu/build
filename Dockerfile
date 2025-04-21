@@ -30,6 +30,16 @@ RUN wget https://apt.devkitpro.org/install-devkitpro-pacman && \
 RUN dkp-pacman -Sy && \
     (printf "\n" && yes) | dkp-pacman -S wiiu-dev
 
+RUN git clone https://github.com/wiiu-env/WiiUPluginSystem.git && \
+    (cd WiiUPluginSystem && make install) && \
+    rm -rf WiiUPluginSystem && \
+    git clone https://github.com/wiiu-env/libnotifications.git && \
+    (cd libnotifications && make install) && \
+    rm -rf libnotifications && \
+    git clone https://github.com/wiiu-env/libkernel.git && \
+    (cd libkernel && make install) && \
+    rm -rf libkernel
+
 ENV DEVKITPRO=/opt/devkitpro
 ENV DEVKITPPC=${DEVKITPRO}/devkitPPC
 ENV GH=https://github.com/rust-wiiu
