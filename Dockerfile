@@ -30,6 +30,10 @@ RUN wget https://apt.devkitpro.org/install-devkitpro-pacman && \
 RUN dkp-pacman -Sy && \
     (printf "\n" && yes) | dkp-pacman -S wiiu-dev
 
+ENV DEVKITPRO=/opt/devkitpro
+ENV DEVKITPPC=${DEVKITPRO}/devkitPPC
+ENV GH=https://github.com/rust-wiiu
+
 RUN git clone https://github.com/wiiu-env/WiiUPluginSystem.git && \
     (cd WiiUPluginSystem && make install) && \
     rm -rf WiiUPluginSystem && \
@@ -40,9 +44,8 @@ RUN git clone https://github.com/wiiu-env/WiiUPluginSystem.git && \
     (cd libkernel && make install) && \
     rm -rf libkernel
 
-ENV DEVKITPRO=/opt/devkitpro
-ENV DEVKITPPC=${DEVKITPRO}/devkitPPC
-ENV GH=https://github.com/rust-wiiu
+COPY ./clone.sh /usr/local/bin/clone
+RUN chmod +x /usr/local/bin/clone
 
 WORKDIR /home/rust-wiiu
 
