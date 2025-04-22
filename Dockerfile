@@ -44,7 +44,7 @@ RUN git clone https://github.com/wiiu-env/WiiUPluginSystem.git && \
     (cd libkernel && make install) && \
     rm -rf libkernel
 
-COPY ./clone.sh /usr/local/bin/clone
+COPY clone /usr/local/bin/clone
 RUN chmod +x /usr/local/bin/clone
 
 WORKDIR /home/rust-wiiu
