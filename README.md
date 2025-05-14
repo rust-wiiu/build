@@ -9,7 +9,7 @@ Utilities for building rust-wiiu software
 
 ### Terminal
 
-1. `docker run <TAG>`
+1. `docker run <TAG> -v <LOCAL_DIR>:/home/rust-wiiu/<ENV_DIR>`
 2. `docker exec -it <ID> sh`
 
 ### Docker Desktop
