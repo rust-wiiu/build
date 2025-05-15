@@ -12,7 +12,7 @@ docker login ghcr.io
 
 2. Pull the image
 ```
-docker pull ghcr.io/rust-wiiu/build:<TAG>
+docker pull ghcr.io/rust-wiiu/build:<TAG> # main or v1.2.3
 ```
 
 3. Confirm image was downloaded and is available
