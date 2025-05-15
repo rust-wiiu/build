@@ -6,17 +6,17 @@ Utilities for building rust-wiiu software
 ### Pull image
 
 1. Login with your Github username and [personal access token](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#about-the-container-registry) with at least `read:package` privileges
-```
+```shell
 docker login ghcr.io
 ```
 
 2. Pull the image
-```
-docker pull ghcr.io/rust-wiiu/build:<TAG> # main or v1.2.3
+```shell
+docker pull ghcr.io/rust-wiiu/build:<TAG> # main, v1.2.3, ...
 ```
 
 3. Confirm image was downloaded and is available
-```
+```shell
 docker images
 ```
 
