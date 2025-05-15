@@ -34,7 +34,9 @@ You should see `ghcr.io/rust-wiiu/build` in the list.
 
 ### Running the Image
 
-You can interact with the build environment by running the Docker image in interactive mode. This command starts a new container from the image and gives you a shell prompt inside it:
+You can interact with the build environment by running the Docker image in interactive mode[^1]. This command starts a new container from the image and gives you a shell prompt inside it:
+
+[^1]: [Interactive mode](https://docs.docker.com/reference/cli/docker/container/run/#interactive): The flag `-it` is short for `--interactive --tty`.
 
 ```shell
 docker run -it --name <NAME> ghcr.io/rust-wiiu/build
