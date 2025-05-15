@@ -1,5 +1,5 @@
 FROM rust:1.86
-LABEL authors="29th-Day"
+LABEL authors="29th-Day & rust-wiiu"
 
 ARG RUSTC_VERSION="nightly-2025-02-06"
 
@@ -47,6 +47,8 @@ RUN git clone https://github.com/wiiu-env/WiiUPluginSystem.git && \
 COPY clone /usr/local/bin/clone
 RUN chmod +x /usr/local/bin/clone
 
-WORKDIR /home/rust-wiiu
+RUN useradd -ms /bin/bash dev
+USER dev
+WORKDIR /home/dev
 
-CMD ["sleep", "infinity"]
+CMD ["/bin/bash"]
