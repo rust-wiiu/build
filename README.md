@@ -1,11 +1,24 @@
 # build
 Utilities for building rust-wiiu software
 
-## Build
-
-`docker build -t <TAG> .`
-
 ## How to use
+
+### Pull image
+
+1. Login with your Github username and [personal access token](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#about-the-container-registry) with at least `read:package` privileges
+```
+docker login ghcr.io
+```
+
+2. Pull the image
+```
+docker pull ghcr.io/rust-wiiu/build:<TAG>
+```
+
+3. Confirm image was downloaded and is available
+```
+docker images
+```
 
 ### Terminal
 
@@ -28,3 +41,7 @@ cargo make --profile release build
 ```
 
 You can get the binaries by mounting a folder in the container to your filesystem.
+
+## Build
+
+`docker build -t <TAG> .`
