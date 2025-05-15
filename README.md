@@ -14,7 +14,7 @@ docker login ghcr.io
 
 **Step 2: Pull the Docker Image**
 
-Next, download the specific version of the build image you need. Replace `<TAG>` with the desired tag (e.g., `main`, `v1.2.3`).
+Next, download the specific version of the build image you need. Replace the optional `<TAG>` with the desired tag (e.g., `main`, `v1.2.3`).
 
 ```shell
 docker pull ghcr.io/rust-wiiu/build:<TAG>
